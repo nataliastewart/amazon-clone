@@ -12,7 +12,12 @@ export default function Home() {
 					alt=""
 				/>
 				<div className="home__row">
-					<Product />
+					<Product
+						title="The Lean Starup"
+						price={29.99}
+						image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
+						rating={5}
+					/>
 					<Product />
 				</div>
 				<div className="home__row">
