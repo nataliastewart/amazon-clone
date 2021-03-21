@@ -14,7 +14,7 @@ export default function Home() {
 				<div className="home__row">
 					<Product
 						id="132"
-						title="The Lean Starup"
+						title="The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses"
 						price={29.99}
 						image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
 						rating={5}
@@ -32,7 +32,7 @@ export default function Home() {
 						id="234"
 						title="Kenwood Mix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
 						price={239.99}
-						image="https://m.media-amazon.com/images/I/61EjnhjsvnL._AC_UY327_FMwebp_QL65_.jpg"
+						image="https://m.media-amazon.com/images/I/61hNBQpikbL._AC_UY327_FMwebp_QL65_.jpg"
 						rating={4}
 					/>
 					<Product
