@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-export default function Product({ title, image, price, rating }) {
+export default function Product({ id, title, image, price, rating }) {
 	return (
 		<div className="product">
 			<div className="product__info">
