@@ -1,5 +1,7 @@
 export const initialState = {
 	basket: [],
+	//we assume when the app is by default the user will be null
+	user: null,
 };
 
 //Selector:
@@ -29,6 +31,11 @@ const reducer = (state, action) => {
 			}
 
 			return { ...state, basket: newBasket };
+		case 'SET_USER':
+			return {
+				...state,
+				user: action.user,
+			};
 
 		//don't forget about the default: return state
 		default:
