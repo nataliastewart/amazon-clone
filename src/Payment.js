@@ -13,11 +13,31 @@ function Payment() {
 	const stripe = useStripe();
 	const elements = useElements();
 
+	const [succeeded, setSucceeded] = useState(false);
+	const [processing, setProcessing] = useState('');
 	const [error, setError] = useState(null);
-	const [disabled, setDisabled] = useState(null);
+	const [clientSecret, setClientSecret] = useState(null);
 
-	const handleSubmit = e => {
-		//do all the facy stripe
+	useEffect(() => {
+		//generate the special stripe secret wich allow us to charge the customer
+		//whenvever the basket changes, we need to generate a new secret - if the total value of the purchase changes
+		const getClientSecret = async () => {
+			const response = await axios({
+				method: 'post',
+				//Stripe expects the total in a currencies subunits. if you use $ dollars => need to be => (subunits=> cents (* 100))
+				url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+			});
+			setClientSecret(response.data.clientSecret);
+		};
+
+		getClientSecret();
+	}, [basket]);
+
+	const handleSubmit = async event => {
+		//do all the facy stripe stuff...
+		event.preventDefault();
+		setProcessing(true);
+		const payload = await stripe;
 	};
 
 	const handleChange = event => {
@@ -84,7 +104,13 @@ function Payment() {
 									thousandSeparator={true}
 									prefix={'$'}
 								/>
+								<button disabled={processing || disabled || succeeded}>
+									<span>{processing ? <p>Processing...</p> : 'Buy Now'} </span>
+								</button>
 							</div>
+
+							{/*Errors - if there is an error, only then you show the error div*/}
+							{error && <div>{error}</div>}
 						</form>
 					</div>
 				</div>
