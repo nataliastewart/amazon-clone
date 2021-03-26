@@ -11,3 +11,8 @@ steps:
 
 1. npm i @stripe/stripe-js
 2. npm i @stripe/react-stripe-js
+
+Backend:
+cd functions(folder)
+
+1. firebase emulators:start
