@@ -16,3 +16,4 @@ Backend:
 cd functions(folder)
 
 1. firebase emulators:start
+2. to deploy: firebase deploy --only functions
